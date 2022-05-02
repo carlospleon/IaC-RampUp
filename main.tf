@@ -110,7 +110,7 @@ module "k8s_worker" {
   source               = "./modules/instance"
   instance_type        = "t2.medium"
   key                  = "devops_rampup"
-  ami                  = "ami-04505e74c0741db8d" //Ubuntu AMI
+  ami                  = "ami-04505e74c0741db8d" //Ubuntu  AMI
   name                 = "K8s_worker"
   userdata             = "user-data-k8s-worker.sh"
   network_interface_id = module.network_interface_k8s_worker.id
