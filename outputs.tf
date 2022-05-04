@@ -21,3 +21,8 @@ output "K8s_worker_IP"{
   description = "Worker node ip address"
   value       = module.k8s_worker.instance_private_ip
 }
+
+output "K8s_worker2_IP"{
+  description = "Worker node ip address"
+  value       = module.k8s_worker2.instance_private_ip
+}

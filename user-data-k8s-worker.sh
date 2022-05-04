@@ -34,4 +34,4 @@ systemctl enable kubelet
 kubeadm reset -f
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
-kubeadm join 10.0.3.10:6443 --token n9cyl0.572mr4m7qp7kwr75 --discovery-token-ca-cert-hash sha256:e2db0035d6d84d9f3e02d268b5c7f69a26f5cace01bbd42fcd90cdb229c4a56c
+#kubeadm join 10.0.3.10:6443 --token ejgmtl.014dnoigzw6mrvds --discovery-token-ca-cert-hash sha256:4b0d25347395ae2dce19fb3fc74cb617b0f92b3490d9df90047452fb9a4f6fe3

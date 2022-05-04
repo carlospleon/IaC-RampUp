@@ -117,12 +117,30 @@ module "k8s_worker" {
   security             = [module.security.private_SG_id]
 }
 
+module "network_interface_k8s_worker2" {
+  source      = "./modules/network"
+  private_ips = ["10.0.3.12"]
+  subnet_id   = module.subnet_private.id
+  security    = [module.security.private_SG_id]
+}
+
+module "k8s_worker2" {
+  source               = "./modules/instance"
+  instance_type        = "t2.medium"
+  key                  = "devops_rampup"
+  ami                  = "ami-04505e74c0741db8d" //Ubuntu  AMI
+  name                 = "K8s_worker2"
+  userdata             = "user-data-k8s-worker.sh"
+  network_interface_id = module.network_interface_k8s_worker2.id
+  security             = [module.security.private_SG_id]
+}
+
 module "loadbalancer" {
   source   = "./modules/load balancer"
   security = [module.security.id]
   subnets  = [module.subnet_private.id, module.subnet_B.id]
   vpc_id   = module.vpc.id
-  instance = [module.k8s_worker.instance_id]
+  instance = [module.k8s_worker.instance_id, module.k8s_worker2.instance_id]
 }
 
 module "database" {

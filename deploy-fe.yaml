@@ -26,7 +26,7 @@ spec:
           image: carlospleon/frontend:latest
           env:
             - name: BACKEND_URL
-              value: "10.0.3.11:30000"
+              value: "movie-app-be:3000"
             - name: PORT
               value: "3030"
           ports:
